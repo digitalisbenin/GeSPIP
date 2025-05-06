@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property integer $id
+ * @property integer $nature_activite_id
+ * @property integer $mode_execution_id
+ * @property integer $projet_id
+ * @property integer $commune_id
+ * @property integer $entreprise_id
+ * @property string $titre_activite
+ * @property string $cout_activite
+ * @property string $description
+ * @property string $dure_execution
+ * @property string $created_at
+ * @property string $updated_at
+ * @property NatureActivite $natureActivite
+ * @property Commune $commune
+ * @property ModeExecution $modeExecution
+ * @property Projet $projet
+ * @property Entreprise $entreprise
+ * @property Contrat[] $contrats
+ */
+class Activite extends Model
+{
+    /**
+     * @var array
+     */
+    protected $fillable = ['nature_activite_id', 'mode_execution_id', 'projet_id', 'commune_id', 'entreprise_id', 'titre_activite', 'cout_activite', 'description', 'dure_execution', 'created_at', 'updated_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function natureActivite()
+    {
+        return $this->belongsTo('App\Models\NatureActivite');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function commune()
+    {
+        return $this->belongsTo('App\Models\Commune');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function modeExecution()
+    {
+        return $this->belongsTo('App\Models\ModeExecution');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function projet()
+    {
+        return $this->belongsTo('App\Models\Projet');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function entreprise()
+    {
+        return $this->belongsTo('App\Models\Entreprise');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function contrats()
+    {
+        return $this->hasMany('App\Models\Contrat');
+    }
+}

@@ -1,0 +1,94 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property integer $id
+ * @property integer $activite_id
+ * @property integer $user_id
+ * @property string $numero
+ * @property string $contrat
+ * @property string $status
+ * @property string $entreprise
+ * @property string $phone
+ * @property string $ref_contrat
+ * @property string $date_de_planification
+ * @property string $info_compl_localite
+ * @property string $demarre
+ * @property string $date_de_remise_site
+ * @property string $date_de_demarrage
+ * @property string $niv_exe_phy_date_visit
+ * @property string $niv_exe_fce_date_visit
+ * @property string $montant_desc_deja_pay
+ * @property string $montant_desc_a_pay
+ * @property string $date_achev_pro
+ * @property string $date_achev_reel
+ * @property string $date_recept_tech
+ * @property string $lien_pv4
+ * @property string $pv4
+ * @property string $date_recept_prov_chantier
+ * @property string $lien_pv5
+ * @property string $pv5
+ * @property string $date_recept_def_chantier
+ * @property string $lien_pv6
+ * @property string $pv6
+ * @property string $duree_ret_accus
+ * @property string $cause_retard
+ * @property string $solution
+ * @property string $appro_achantier
+ * @property string $qualite_travaux
+ * @property string $difficulte
+ * @property string $autre_diff
+ * @property string $attachement1
+ * @property string $date_attach1
+ * @property string $montant_attach1
+ * @property string $lien_pv1
+ * @property string $pv1
+ * @property string $attachement2
+ * @property string $date_attach2
+ * @property string $montant_attach2
+ * @property string $lien_pv2
+ * @property string $pv2
+ * @property string $attachement3
+ * @property string $date_attach3
+ * @property string $montant_attach3
+ * @property string $lien_pv3
+ * @property string $pv3
+ * @property string $nbre_empl_per
+ * @property string $nbre_empl_temp
+ * @property string $annee_execution
+ * @property string $personne_en_charge
+ * @property string $localite
+ * @property string $etat_chantier
+ * @property string $coordonnéeGPS
+ * @property string $mode_execution
+ * @property string $created_at
+ * @property string $updated_at
+ * @property Activite $activite
+ * @property User $user
+ */
+class Contrat extends Model
+{
+    /**
+     * @var array
+     */
+    protected $fillable = ['activite_id', 'user_id', 'numero', 'contrat', 'status', 'entreprise', 'phone', 'ref_contrat', 'date_de_planification', 'info_compl_localite', 'demarre', 'date_de_remise_site', 'date_de_demarrage', 'niv_exe_phy_date_visit', 'niv_exe_fce_date_visit', 'montant_desc_deja_pay', 'montant_desc_a_pay', 'date_achev_pro', 'date_achev_reel', 'date_recept_tech', 'lien_pv4', 'pv4', 'date_recept_prov_chantier', 'lien_pv5', 'pv5', 'date_recept_def_chantier', 'lien_pv6', 'pv6', 'duree_ret_accus', 'cause_retard', 'solution', 'appro_achantier', 'qualite_travaux', 'difficulte', 'autre_diff', 'attachement1', 'date_attach1', 'montant_attach1', 'lien_pv1', 'pv1', 'attachement2', 'date_attach2', 'montant_attach2', 'lien_pv2', 'pv2', 'attachement3', 'date_attach3', 'montant_attach3', 'lien_pv3', 'pv3', 'nbre_empl_per', 'nbre_empl_temp', 'annee_execution', 'personne_en_charge', 'localite', 'etat_chantier', 'coordonnéeGPS', 'mode_execution', 'created_at', 'updated_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function activite()
+    {
+        return $this->belongsTo('App\Models\Activite');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+}
